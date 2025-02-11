@@ -9,9 +9,6 @@ menuBtn.addEventListener("click", (e) => {
   menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
 });
 
-
-
-
 navLinks.addEventListener("click", (e) => {
   navLinks.classList.remove("open");
   menuBtnIcon.setAttribute("class", "ri-menu-line");
@@ -63,4 +60,20 @@ ScrollReveal().reveal(".about__card", {
 
 const swiper = new Swiper(".swiper", {
   loop: true,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
 });
+
+const learnMoreBtn = document.querySelector(".about__btn");
+
+if (learnMoreBtn) {
+  learnMoreBtn.addEventListener("click", () => {
+    document.getElementById("contact").scrollIntoView({ behavior: "smooth" });
+  });
+}
